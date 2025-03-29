@@ -20,10 +20,11 @@
   .navbarTop-right .login-button{
     background-color: black;
     color: white;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", Arial;
     padding: 10px 20px;
     margin: 10px;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
   }
   
