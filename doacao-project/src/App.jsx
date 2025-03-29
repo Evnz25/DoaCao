@@ -1,11 +1,13 @@
 import Card from './Card'
 import Button from './Button/Button.jsx'
-import Navbar from './Navbar'
+import NavbarTop from './Navbar/NavbarTop.jsx'
+import ContainerHome from './Container/ContainerHome.jsx'
 
 function App() {
   return(
     <>
-      <Navbar/>
+      <NavbarTop/>
+      <ContainerHome/>
     </>  
   )
 }

@@ -1,0 +1,30 @@
+.adocao-container-left{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 3rem;
+    gap: 5rem;
+}
+
+.adocao-card-left{
+    background-color: aqua;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cotainer-img-dog{
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.adocao-button-dog{
+    margin-top: 0.5rem;
+    background-color: black;
+    color:white;
+    border: 1px solid #999;
+    padding: 8px 16px;
+    cursor: pointer;
+}
