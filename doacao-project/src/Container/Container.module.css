@@ -1,12 +1,12 @@
-.adocao-container-home{
+.adocaoContainerHome{
     display: flex;
     justify-content: center;
     margin-top: 10rem;
     gap: 10rem;
 }
 
-.adocao-card-left{
-    background-color: rgb(240, 220, 220, 31%);
+.adocaoCardLeft{
+    background-color: rgb(240, 220, 220, 70%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -15,13 +15,13 @@
     border-radius: 8px;
 }
 
-.cotainer-img-dog{
+.cotainerImgDog{
     width: 400px;
     height: auto;
     border-radius: 10px;
 }
 
-.adocao-button-dog{
+.adocaoButtonDog{
     margin-top: 0.5rem;
     background-color: rgb(144, 158, 212, 45%);
     color:black;
@@ -32,8 +32,8 @@
     font-family:"Inter", Arial;
 }
 
-.adocao-card-right{
-    background-color: rgb(240, 220, 220, 31%);
+.adocaoCardRight{
+    background-color: rgb(240, 220, 220, 70%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -42,13 +42,13 @@
     border-radius: 8px;
 }
 
-.cotainer-img-cat{
+.cotainerImgCat{
     width: 400px;
     height: auto;
     border-radius: 10px;
 }
 
-.adocao-button-cat{
+.adocaoButtonCat{
     margin-top: 0.5rem;
     background-color: rgb(144, 158, 212, 45%);
     color:black;

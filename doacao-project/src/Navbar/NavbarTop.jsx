@@ -1,30 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import style from './Navbar.module.css'
 import logopic from '../assets/logo-doacao.png'
 
 function Navbar(){
+    const navigate = useNavigate();
 
     return(
         <nav className={style.navbarTop}>
-            <div className={style["navbarTop-left"]}>
+            <div className={style.navbarTopLeft}>
                 <a href="/" className={style.logo}>
-                    <img className={style["logo-img"]} src={logopic} alt="logo pictures"></img>
+                    <img className={style.logoImg} src={logopic} alt="logo pictures"></img>
                 </a>
             </div>
 
-            <div className={style["navbarTop-right"]}>
-                <ul className={style["nav-links"]}>
-                        <li>
-                            <a href="/">Gatos</a>
-                        </li>
-                        <li>
-                            <a href="/">Cachorros</a>
-                        </li>
+            <div className={style.navbarTopRight}>
+                <ul className={style.navLinks}>
+                    <li><Link to="/"> Gatos </Link></li>
+                    <li><Link to="/DonationDog"> Cachorros </Link></li>
                 </ul>
-                <button className={style["login-button"]}>Login funcionário</button>
+                <button className={style.loginButton} onClick={() => navigate('/')}>Login funcionário</button>
             </div>
         </nav>
-    )
+    );
 
 }
 

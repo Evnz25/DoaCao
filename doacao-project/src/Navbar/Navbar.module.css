@@ -2,22 +2,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(240, 220, 220, 31%);
+    background-color: rgb(240, 220, 220, 70%);
     color: #fff;
     padding: 1rem;
   }
   
-  .navbarTop-left .logo-img{
+  .navbarTopLeft .logoImg{
     max-width: 50%;
     height: auto;
     margin-bottom: 10px
   }
   
-  .navbarTop-right{
+  .navbarTopRight{
     display: flex;
   }
   
-  .navbarTop-right .login-button{
+  .navbarTopRight .loginButton{
     background-color: black;
     color: white;
     font-family: "Inter", Arial;
@@ -28,18 +28,18 @@
     cursor: pointer;
   }
   
-  .navbarTop-right .nav-links{
+  .navbarTopRight .navLinks{
     list-style-type: none;
     display: flex;
     margin: 10px;
     padding: 10px 20px;
   }
   
-  .navbarTop-right .nav-links li{
+  .navbarTopRight .navLinks li{
     margin-right: 1rem;
   }
   
-  .navbarTop-right .nav-links a{
+  .navbarTopRight .navLinks a{
     color: #000000;
     font-family: "Inter", sans-serif;
     text-decoration: none;
