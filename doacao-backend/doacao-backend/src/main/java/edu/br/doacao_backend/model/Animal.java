@@ -19,6 +19,7 @@ public class Animal {
     private String gender;
     private String specie;
     private String race;
+    private String imagePath;
     private int age;
 
 }

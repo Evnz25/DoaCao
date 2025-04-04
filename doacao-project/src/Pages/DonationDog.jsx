@@ -7,24 +7,26 @@ import BellaPic from '../assets/BellaPic.png'
 import ZecaPic from '../assets/ZecaPic.png'
 import MaxPic from '../assets/MaxPic.png'
 import LunaPic from '../assets/LunaPic.png'
+import { useEffect, useState } from 'react'
 
 function DonationDog() {
+    const [animals, setAnimals] = useState([])
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/animals")
+        .then((res) => setAnimals(res.data))
+        .catch((err) => console.error("Erro"), err);
+    }, []);
+
     return(
         <>
             <NavbarTop />
             <div className={style.cards}>
-                <CardAnimal name="Nina" image={NinaPic} />
-                <CardAnimal name="Rex" image={RexPic} />
-                <CardAnimal name="Bella" image={BellaPic} />
-                <CardAnimal name="Zeca" image={ZecaPic} />
-                <CardAnimal name="Max" image={MaxPic} />
-                <CardAnimal name="Luna" image={LunaPic} />
-                <CardAnimal name="Luna" image={LunaPic} />
-                <CardAnimal name="Luna" image={LunaPic} />
-                <CardAnimal name="Luna" image={LunaPic} />
-                <CardAnimal name="Luna" image={LunaPic} />
-                <CardAnimal name="Luna" image={LunaPic} />
-
+                {animals.map((animals) => (
+                    <>
+                    <CardAnimal key={animals.id} nome={animals.nome} image={animals.imagePath} />
+                    </>
+                ))}
             </div>
         </>
     )

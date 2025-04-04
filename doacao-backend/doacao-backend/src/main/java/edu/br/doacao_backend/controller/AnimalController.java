@@ -14,9 +14,9 @@ public class AnimalController {
     @Autowired
     private AnimalRepository animalRepository;
 
-    @PostMapping("")
+    @PostMapping("/animal")
     Animal newAnimal(@RequestBody Animal newAnimal) { return animalRepository.save(newAnimal); }
 
-    @GetMapping("")
+    @GetMapping("/animals")
     List<Animal> getAllAnimals() { return animalRepository.findAll(); }
 }
