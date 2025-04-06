@@ -1,4 +1,3 @@
-import react from 'react'
 import { useNavigate } from 'react-router-dom'
 import style from './Container.module.css'
 import cachorroPicHome from '../assets/cachorro-home.png'
@@ -15,7 +14,7 @@ function ContainerHome() {
             </div>
             <div className={style.adocaoCardLeft}>
                 <img className={style.containerImgDog} src={cachorroPicHome} alt="dogs pictures"></img>
-                <button className={style.adocaoButtonDog}  onClick={() => navigate ('/DonationDog')}>Adote um cachorro</button>
+                <button className={style.adocaoButtonDog}  onClick={() => navigate ('/donationdog')}>Adote um cachorro</button>
             </div>
         </div>
     )

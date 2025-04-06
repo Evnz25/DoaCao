@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:5173")
 @RestController
 public class AnimalController {
 
@@ -19,4 +19,11 @@ public class AnimalController {
 
     @GetMapping("/animals")
     List<Animal> getAllAnimals() { return animalRepository.findAll(); }
+
+    @GetMapping("/animals/{id}")
+    public Animal getAnimal(@PathVariable Long id) {
+        return animalRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Animal não encontrado"));
+
+    }
 }
