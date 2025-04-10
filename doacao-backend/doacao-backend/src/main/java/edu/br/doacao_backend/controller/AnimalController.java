@@ -24,6 +24,5 @@ public class AnimalController {
     public Animal getAnimal(@PathVariable Long id) {
         return animalRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Animal não encontrado"));
-
     }
 }
