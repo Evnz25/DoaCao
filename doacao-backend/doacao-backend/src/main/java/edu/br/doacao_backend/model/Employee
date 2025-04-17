@@ -1,0 +1,29 @@
+package edu.br.doacao_backend.model;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name = "Employee")
+@Getter
+@Setter
+public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+
+    private String name;
+
+    private String email;
+
+    private String cpf;
+
+    private String adress;
+
+    private int phone;
+
+    private int age;
+
