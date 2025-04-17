@@ -25,6 +25,4 @@ public class MedicalCondition {
 
     private String castrated;
 
-    @OneToOne(mappedBy = "medical_conditions")
-    private Animal animal;
 }
