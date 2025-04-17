@@ -105,11 +105,11 @@
 }
 
 .medicalCondition{
-    gap: 2rem;
+    gap: 1em;
     background-color: rgb(240, 220, 220, 70%);
     width: 70%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-left: 5em;
     margin-top: 2em;
 }
@@ -123,10 +123,45 @@
     padding-left: 5%;   
 }
 
-.vaccinesItens{
+.medicalCondition hr{
+    margin: 5px 0;
+    width: 100%;
+    border: none;
+    border-top: 2px solid black;
+}
+
+.observationMedical{
+    flex-direction: column;
+    align-items: left;
+    font-family: Arial;
+    font-size: 23px;
+    width: 100%;
+    padding-left: 5%;   
+}
+
+.medicalCondition li{
     list-style-type: disc;
     margin-left: 5em;
     padding-top: 5px;
     font-family: Arial;
     font-size: 18px;
+}
+
+.buttons{
+    gap: 2em;
+    margin-left: 10em;
+    margin-bottom: 2em;
+}
+
+.buttons button{
+    margin-top: 0.5rem;
+    margin-left: 3em;
+    background-color: rgb(144, 158, 212, 45%);
+    font-family:"Inter", Arial;
+    font-size: 20px;
+    color:black;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 4px 8px;
+    cursor: pointer;
 }

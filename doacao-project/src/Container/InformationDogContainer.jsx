@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import style from './Container.module.css'
 
 function InformationDogContainer(props){
+    const navigate = useNavigate();
+
     return(
         <>
         <div className={style.informationDog}>
@@ -20,9 +23,24 @@ function InformationDogContainer(props){
             </div>
         </div>
         <div className={style.medicalCondition}>
-            <h2 className={style.vaccines}>Vacinas: 
+            <h1 className={style.vaccines}>
+                Vacinas: 
                 <li className={style.vaccinesItens}>{props.vaccine}</li>
+            </h1>
+            <hr />
+            <h2 className={style.observationMedical}>
+                Observações:
+                <p className={style.observationItens}></p>
+                    <li>Castrado: {props.castrated}</li>
+                    <li>Ferimentos: {props.injuries}</li>
+                    <li>Doenças: {props.sickness}</li>
+                    <li>Medicamentos: {props.medicine}</li>
+
             </h2>
+            <div className={style.buttons}>
+                <button className={style.adopt} onClick={() => navigate ('/donationdog')}>Prosseguir para adoção</button>
+                <button className={style.return} onClick={() => navigate ('/donationdog')}>Retornar página anterior</button>
+            </div>
         </div>
         </>  
     );
