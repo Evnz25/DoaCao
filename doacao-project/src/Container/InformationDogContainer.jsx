@@ -2,6 +2,7 @@ import style from './Container.module.css'
 
 function InformationDogContainer(props){
     return(
+        <>
         <div className={style.informationDog}>
             <div className={style.perfilAnimal}>
                 <h2 className={style.informationTitle}>{props.name}</h2>
@@ -9,15 +10,21 @@ function InformationDogContainer(props){
             </div>
             <div className={style.characteristicsAnimal}>
                 <p>Animal: {props.specie}</p>
-                <hr />  
+                <hr />
                 <p>Idade: {props.age}</p>
-                <hr />  
+                <hr />
                 <p>Sexo: {props.gender}</p>
-                <hr />  
+                <hr />
                 <p>Raça: {props.race}</p>
-                <hr />  
+                <hr />
             </div>
         </div>
+        <div className={style.medicalCondition}>
+            <h2 className={style.vaccines}>Vacinas: 
+                <li className={style.vaccinesItens}>{props.vaccine}</li>
+            </h2>
+        </div>
+        </>  
     );
 }
 

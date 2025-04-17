@@ -21,8 +21,20 @@ function InformationDog() {
     return(
         <>
             <NavbarTop />
-            <InformationDogContainer key={animals.id} name={animals.name} age={animals.age} gender={animals.gender} specie={animals.specie}
-            race={animals.race} image={animals.imagePath} />
+            <InformationDogContainer 
+                key={animals.id}
+                name={animals.name} 
+                age={animals.age} 
+                gender={animals.gender} 
+                specie={animals.specie}
+                race={animals.race} 
+                image={animals.imagePath} 
+                injuries={animals.medical_conditions.injuries} 
+                sickness={animals.medical_conditions.sickness} 
+                medicine={animals.medical_conditions.medicine} 
+                vaccine={animals.medical_conditions.vaccine}
+                castrated={animals.medical_conditions.castrated}
+            />
         </>
     );
 }

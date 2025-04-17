@@ -60,6 +60,7 @@
 }
 
 .informationDog{
+    gap: 2rem;
     background-color: rgb(240, 220, 220, 70%);
     width: 70%;
     display: flex;
@@ -101,4 +102,31 @@
     width: 95%;
     border: none;
     border-top: 2px solid black;
+}
+
+.medicalCondition{
+    gap: 2rem;
+    background-color: rgb(240, 220, 220, 70%);
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 5em;
+    margin-top: 2em;
+}
+
+.vaccines{
+    flex-direction: column;
+    align-items: left;
+    font-family: Arial;
+    font-size: 23px;
+    width: 100%;
+    padding-left: 5%;   
+}
+
+.vaccinesItens{
+    list-style-type: disc;
+    margin-left: 5em;
+    padding-top: 5px;
+    font-family: Arial;
+    font-size: 18px;
 }
