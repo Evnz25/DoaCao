@@ -10,7 +10,7 @@ function ContainerHome() {
         <div className={style.adocaoContainerHome}>
             <div className={style.adocaoCardRight}>
                 <img className={style.containerImgCat} src={gatoPicHome} alt="cats pictures"></img>
-                <button className={style.adocaoButtonCat} onClick={() => navigate ('/')}>Adote um gato</button>
+                <button className={style.adocaoButtonCat} onClick={() => navigate ('/animalsregister/')}>Adote um gato</button>
             </div>
             <div className={style.adocaoCardLeft}>
                 <img className={style.containerImgDog} src={cachorroPicHome} alt="dogs pictures"></img>

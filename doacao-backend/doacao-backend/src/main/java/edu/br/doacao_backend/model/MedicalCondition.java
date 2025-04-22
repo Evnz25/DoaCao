@@ -3,6 +3,8 @@ package edu.br.doacao_backend.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "medical_conditions")
@@ -11,7 +13,7 @@ import lombok.Setter;
 public class MedicalCondition {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -21,7 +23,7 @@ public class MedicalCondition {
 
     private String medicine;
 
-    private String vaccine;
+    private List<String> vaccine = new ArrayList<>();
 
     private String castrated;
 

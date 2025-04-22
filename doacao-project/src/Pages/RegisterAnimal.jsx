@@ -1,41 +1,138 @@
 import { useState } from "react";
 import axios from "axios";
+import NavbarTop from "../Navbar/NavbarTop"
+import style from './Pages.module.css'
+import uploadPic from '../assets/upload.png'
 
-function ResgisterAnimal(){
-    const[formData, setFormData] = useState({
-        name: '',
-        specie: '',
-        age: '',
-        gender: '',
-        race: '',
-        imagePath: '',
-        vaccine: '',
-        castrated: '',
-        injuries: '',
-        sickness: '',
-        medicine: '',
-
+function RegisterAnimal(){
+    const[animal, setAnimal] = useState({
+        basic_info: {
+            name: '',
+            specie: '',
+            age: '',
+            gender: '',
+            race: '',
+        },
+        imagePath: null,
+        medical_conditions: {
+            vaccine: [''],
+            castrated: '',
+            injuries: '',
+            sickness: '',
+            medicine: ''
+        }
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({...prev, [name]: value}));
+        const { name, value, type, files } = e.target;
+
+        if (type === "file"){
+            setAnimal((prev) => ({
+                ...prev, [name]: files[0],
+            }));
+        } else if (["castrated", "injuries", "sickness", "medicine"].includes(name)) {
+            setAnimal((prev) => ({
+                ...prev,
+                medical_conditions: {
+                    ...prev.medical_conditions,
+                    [name]: value
+                },   
+            }));
+        } else {
+            setAnimal((prev) => ({
+                ...prev, basic_info, [name]: value}));
+        }
     };
 
-    const handleSubmit = (e) => {
+    const handleVaccineChange = (index, value) => {
+        const newVaccines = [...animal.medical_conditions.vaccine];
+        newVaccines[index] = value;
+        setAnimal((prev) => ({
+            ...prev, medical_conditions: {
+                ...prev.medical_conditions,
+                vaccine: newVaccines
+            }
+        }));
+    };
+
+    const addVaccine = () => {
+        setAnimal((prev) => ({
+            ...prev, medical_conditions: {
+                ...prev.medical_conditions,
+                vaccine: [...prev.medical_conditions.vaccine, ""]
+            }
+        }));
+    };  
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-    };
 
-    axios.post('http://localhost:8080/animal', formaData)
-    then(res => {
-        console.log("Animal cadastrado com sucesso:", res.data);
-    })
-    .catch(err => {
-        console.error("Erro ao cadastrar animal:", err);
-    })
+        const formData = new FormData();
+
+        formData.append("basic_info", JSON.stringify(animal.basic_info));
+        formData.append("medical_conditons", JSON.stringify(animal.medical_conditions));
+        formData.append("imagePath", animal.imagePath);
+
+        try {
+            const res = await axios.post('http://localhost:8080/animal', formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+            console.log("Cadastrado 82", res.data);
+        } catch (err) {
+            console.error("Erro de cadastro", err);
+        }
+    };  
     
     return(
-        <div></div>
+        <>
+        <NavbarTop />
+        <form onSubmit={handleSubmit}>
+            <div className={style.basicInformation}>
+                <div className={style.perfilAnimal}>
+                    <h2 className={style.informationTitle}>Cadastro</h2>
+                    <img className={style.informationPhoto} src={uploadPic} alt={"Sem foto"}></img>
+                </div>
+                <div className={style.characteristicsAnimal}>
+                    <input name="name" placeholder="Nome" onChange={handleChange} />
+                    <hr />
+                    <input name="age" placeholder="Idade" onChange={handleChange} />
+                    <hr />
+                    <input name="gender" placeholder="Gênero" onChange={handleChange} />
+                    <hr />
+                    <input name="specie" placeholder="Espécie" onChange={handleChange} />
+                    <hr />
+                    <input name="race" placeholder="Raça" onChange={handleChange} />
+                    <hr />
+                    <input type="file" accept="image/*" name="imagePath" onChange={handleChange} />
+                </div>
+            </div>
+            <div className={style.medicalCondition}>
+                <h1 className={style.vaccines}>
+                    Vacinas: 
+                    {animal.medical_conditions.vaccine.map((vaccine, index) => ( 
+                    <input key={index} type="text" value={vaccine} onChange={(e) => handleVaccineChange(index, e.target.value)} placeholder={`Vacina ${index + 1}`}/> ))}
+                </h1>
+                <button type="button" onClick={addVaccine}> Adicionar vacina</button>
+                <hr />
+                <h2 className={style.observationMedical}>
+                    Observações:
+                        <p className={style.observationItens}></p>
+                                <input name="injuries" placeholder="Ferimentos" onChange={handleChange} />
+                                <hr />
+                                <input name="sickness" placeholder="Doenças" onChange={handleChange} />
+                                <hr />
+                                <input name="medicine" placeholder="Medicamentos" onChange={handleChange} />
+                                <hr />
+                                <input name="castrated" placeholder="Castrado" onChange={handleChange} />
+                        </h2>
+                        <div className={style.buttons}>
+                            <button type="submit">Cadastrar</button>
+                        </div>
+            </div>
+    </form>
+    </>
     );
 }
 
