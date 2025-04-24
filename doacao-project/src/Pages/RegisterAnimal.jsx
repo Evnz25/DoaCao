@@ -2,7 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import NavbarTop from "../Navbar/NavbarTop"
 import style from './Pages.module.css'
-import uploadPic from '../assets/upload.png'
+import uploadPic from "../assets/cachorro-home.png"
+
 
 function RegisterAnimal(){
     const[animal, setAnimal] = useState({
@@ -15,7 +16,7 @@ function RegisterAnimal(){
         },
         imagePath: null,
         medical_conditions: {
-            vaccine: [''],
+            vaccine: '',
             castrated: '',
             injuries: '',
             sickness: '',
@@ -30,7 +31,7 @@ function RegisterAnimal(){
             setAnimal((prev) => ({
                 ...prev, [name]: files[0],
             }));
-        } else if (["castrated", "injuries", "sickness", "medicine"].includes(name)) {
+        } else if (["castrated", "injuries", "sickness", "medicine", "vaccine"].includes(name)) {
             setAnimal((prev) => ({
                 ...prev,
                 medical_conditions: {
@@ -40,19 +41,11 @@ function RegisterAnimal(){
             }));
         } else {
             setAnimal((prev) => ({
-                ...prev, basic_info, [name]: value}));
+                ...prev, basic_info: {
+                    ...prev.basic_info, [name]: value
+                },
+            }));
         }
-    };
-
-    const handleVaccineChange = (index, value) => {
-        const newVaccines = [...animal.medical_conditions.vaccine];
-        newVaccines[index] = value;
-        setAnimal((prev) => ({
-            ...prev, medical_conditions: {
-                ...prev.medical_conditions,
-                vaccine: newVaccines
-            }
-        }));
     };
 
     const addVaccine = () => {
@@ -110,11 +103,10 @@ function RegisterAnimal(){
             </div>
             <div className={style.medicalCondition}>
                 <h1 className={style.vaccines}>
-                    Vacinas: 
-                    {animal.medical_conditions.vaccine.map((vaccine, index) => ( 
-                    <input key={index} type="text" value={vaccine} onChange={(e) => handleVaccineChange(index, e.target.value)} placeholder={`Vacina ${index + 1}`}/> ))}
+                    Vacinas:
+                    <input name="vaccine" placeholder="Vacinas" onChange={handleChange} /> 
                 </h1>
-                <button type="button" onClick={addVaccine}> Adicionar vacina</button>
+                {/*<button type="button" onClick={addVaccine}> Adicionar vacina</button>*/}
                 <hr />
                 <h2 className={style.observationMedical}>
                     Observações:

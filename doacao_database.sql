@@ -16,6 +16,6 @@ insert into animals(id, age, gender, image_path, name, race, specie, id_medical_
 (3, 4, "Fêmea", "/uploads/BellaPic.png", "Nina", "Vira Lata", "Cachorro", 3);
 
 insert into medical_conditions(id, injuries, sickness, medicine, vaccine, castrated) values
-(1, "Não tem", "Não tem", "Não tem", "Não tem", "Sim"),
-(2, "Não tem", "Não tem", "Não tem", "Não tem", "Sim"),
-(3, "Não tem", "Não tem", "Não tem", "Não tem", "Sim");
+(1, "Não tem", "Não tem", "Não tem", "Raiva", "Sim"),
+(2, "Não tem", "Não tem", "Não tem", "Raiva", "Sim"),
+(3, "Não tem", "Não tem", "Não tem", "Raiva", "Sim");
