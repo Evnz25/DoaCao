@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import NavbarTop from "../Navbar/NavbarTop"
-import style from './Pages.module.css'
-import uploadPic from "../assets/cachorro-home.png"
+import style from './RegisterAnimalPage.module.css'
+import uploadPic from "../assets/upload.png"
 
 
 function RegisterAnimal(){
@@ -33,7 +33,7 @@ function RegisterAnimal(){
             }));
         } else if (["castrated", "injuries", "sickness", "medicine", "vaccine"].includes(name)) {
             setAnimal((prev) => ({
-                ...prev,
+                ...prev, 
                 medical_conditions: {
                     ...prev.medical_conditions,
                     [name]: value
@@ -63,7 +63,7 @@ function RegisterAnimal(){
         const formData = new FormData();
 
         formData.append("basic_info", JSON.stringify(animal.basic_info));
-        formData.append("medical_conditons", JSON.stringify(animal.medical_conditions));
+        formData.append("medical_conditions", JSON.stringify(animal.medical_conditions));
         formData.append("imagePath", animal.imagePath);
 
         try {
@@ -72,7 +72,7 @@ function RegisterAnimal(){
                     "Content-Type": "multipart/form-data",
                 },
             });
-            console.log("Cadastrado 82", res.data);
+            console.log("Cadastrado", res.data);
         } catch (err) {
             console.error("Erro de cadastro", err);
         }
@@ -85,7 +85,7 @@ function RegisterAnimal(){
             <div className={style.basicInformation}>
                 <div className={style.perfilAnimal}>
                     <h2 className={style.informationTitle}>Cadastro</h2>
-                    <img className={style.informationPhoto} src={uploadPic} alt={"Sem foto"}></img>
+                    <img className={style.informationPhoto} src={uploadPic} alt={"Sem foto"} ></img>
                 </div>
                 <div className={style.characteristicsAnimal}>
                     <input name="name" placeholder="Nome" onChange={handleChange} />

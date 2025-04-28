@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom'
-import style from './Container.module.css'
+import style from './AnimalInformation.module.css'
 
-function InformationDogContainer(props){
+function InformationAnimalContainer(props){
     const navigate = useNavigate();
 
     return(
         <>
-        <div className={style.informationDog}>
+        <div className={style.informationAnimal}>
             <div className={style.perfilAnimal}>
                 <h2 className={style.informationTitle}>{props.name}</h2>
                 <img className={style.informationPhoto} src={`http://localhost:8080${props.image}`} alt={"Animal sem foto"}></img>
@@ -46,4 +46,4 @@ function InformationDogContainer(props){
     );
 }
 
-export default InformationDogContainer;
+export default InformationAnimalContainer;

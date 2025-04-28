@@ -1,3 +1,12 @@
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    margin-left: 10rem;
+    margin-right: 5rem;
+    gap: 5rem;
+}
+
 .cardAnimal{
     background-color: rgb(240, 220, 220, 70%);
     border: 1px solid hsl(0, 0%, 80%);

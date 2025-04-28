@@ -1,5 +1,5 @@
 import NavbarTop from '../Navbar/NavbarTop.jsx'
-import ContainerHome from '../Container/ContainerHome.jsx'
+import ContainerHome from './ContainerHome.jsx'
 
 function Home() {
   return(

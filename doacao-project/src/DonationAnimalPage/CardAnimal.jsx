@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import style from './CardAnimal.module.css'
+import style from './DonationAnimalPage.module.css'
 
 
 function CardAnimal(props){

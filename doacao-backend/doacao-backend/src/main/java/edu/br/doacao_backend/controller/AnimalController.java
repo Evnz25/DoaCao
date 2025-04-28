@@ -1,9 +1,12 @@
 package edu.br.doacao_backend.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.br.doacao_backend.model.Animal;
 import edu.br.doacao_backend.model.MedicalCondition;
 import edu.br.doacao_backend.repository.AnimalRepository;
+import edu.br.doacao_backend.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,6 +20,8 @@ import java.util.List;
 public class AnimalController {
 
     @Autowired
+    private ImageService imageService;
+    @Autowired
     private AnimalRepository animalRepository;
 
     @PostMapping("/animal")
@@ -25,22 +30,25 @@ public class AnimalController {
         @RequestPart("medical_conditions") String medicalConditionsJson,    
         @RequestPart("imagePath") MultipartFile imagePath
     ) throws JsonProcessingException {
-        ObjectMappper mapper = new ObjectMapper(); 
+        try {
+            ObjectMapper mapper = new ObjectMapper();
 
-        Animal animal = mapper.readValue(basicInfoJson, Animal.class);
-        MedicalCondition cond = mapper.readValue(medicalConditionsJson, MedicalCondition.class);
+            Animal animal = mapper.readValue(basicInfoJson, Animal.class);
+            MedicalCondition cond = mapper.readValue(medicalConditionsJson, MedicalCondition.class);
 
-        animal.setMedical_conditions(cond);
+            animal.setMedical_conditions(cond);
 
-        String path = imageService.save(imagePath);
-        animal.setImagePath(path);
+            String path = imageService.save(imagePath);
+            animal.setImagePath(path);
 
-        Animal savedAnimal = animalRepository.save(animal);
+            Animal savedAnimal = animalRepository.save(animal);
 
-        return ResponseEntity.ok(savedAnimal);
+            return ResponseEntity.ok(savedAnimal);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
-
-    Animal newAnimal(@RequestBody Animal newAnimal) { return animalRepository.save(newAnimal); }
 
     @GetMapping("/animals")
     List<Animal> getAllAnimals() { return animalRepository.findAll(); }

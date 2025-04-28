@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import InformationDogContainer from '../Container/InformationDogContainer'
+import InformationAnimalContainer from './InformationAnimalContainer'
 import NavbarTop from '../Navbar/NavbarTop';
 
 function InformationDog() {
@@ -11,7 +11,7 @@ function InformationDog() {
     useEffect(() =>{
         axios.get(`http://localhost:8080/animals/${id}`)
         .then(res => setAnimal(res.data))
-        .catch(err => console.error("Erro em buscar animal (InformationDog)", err))
+        .catch(err => console.error("Erro em buscar animal (InformationAnimal)", err))
     }, [id]);
 
     if(!animals) {
@@ -21,7 +21,7 @@ function InformationDog() {
     return(
         <>
             <NavbarTop />
-            <InformationDogContainer 
+            <InformationAnimalContainer 
                 key={animals.id}
                 name={animals.name} 
                 age={animals.age} 

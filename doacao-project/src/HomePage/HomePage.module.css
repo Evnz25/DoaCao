@@ -1,0 +1,60 @@
+.adocaoContainerHome{
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+    gap: 10rem;
+}
+
+.adocaoCardLeft{
+    background-color: rgb(240, 220, 220, 70%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.cotainerImgDog{
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.adocaoButtonDog{
+    margin-top: 0.5rem;
+    background-color: rgb(144, 158, 212, 45%);
+    color:black;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family:"Inter", Arial;
+}
+
+.adocaoCardRight{
+    background-color: rgb(240, 220, 220, 70%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.cotainerImgCat{
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.adocaoButtonCat{
+    margin-top: 0.5rem;
+    background-color: rgb(144, 158, 212, 45%);
+    color:black;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family:"Inter", Arial;
+}

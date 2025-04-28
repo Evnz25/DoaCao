@@ -1,10 +1,10 @@
-import style from './Pages.module.css'
+import style from './DonationAnimalPage.module.css'
 import NavbarTop from '../Navbar/NavbarTop.jsx'
-import CardAnimal from '../Cards/CardAnimal.jsx'
+import CardAnimal from './CardAnimal.jsx'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-function DonationDog() {
+function DonationAnimal() {
     const [animals, setAnimals] = useState([])
 
     useEffect(() => {
@@ -27,4 +27,4 @@ function DonationDog() {
     )
 }
 
-export default DonationDog
+export default DonationAnimal
