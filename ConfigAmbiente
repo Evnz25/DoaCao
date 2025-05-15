@@ -1,8 +1,10 @@
 No backend fazer dowload do java
 
-No frontend executar no cmd
+No frontend executar no cmd 
+Dentro da pasta doacao-project
 npm i react@latest react-dom@latest
 npm audit 
 npm audit fix
 npm i axios
 npm run dev //to run code
+abrir pastas separadamente
