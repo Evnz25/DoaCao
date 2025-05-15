@@ -12,7 +12,7 @@ public class Adress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_adress")
     private Long id;
 
     private String rua;
