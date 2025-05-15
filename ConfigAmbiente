@@ -7,4 +7,4 @@ npm audit
 npm audit fix
 npm i axios
 npm run dev //to run code
-abrir pastas separadamente
+abrir pastas backend e project separadamente
