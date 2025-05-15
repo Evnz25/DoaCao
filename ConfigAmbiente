@@ -1,0 +1,8 @@
+No backend fazer dowload do java
+
+No frontend executar no cmd
+npm i react@latest react-dom@latest
+npm audit 
+npm audit fix
+npm i axios
+npm run dev //to run code
