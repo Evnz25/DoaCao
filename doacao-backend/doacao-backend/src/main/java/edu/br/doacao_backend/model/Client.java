@@ -22,4 +22,8 @@ public class Client {
     private String phone;
 
     private String email;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_address", referencedColumnName = "id")
+    private Address address;
 }

@@ -26,4 +26,8 @@ public class Employee {
     private int phone;
 
     private int age;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_address", referencedColumnName = "id")
+    private Address address;
 }

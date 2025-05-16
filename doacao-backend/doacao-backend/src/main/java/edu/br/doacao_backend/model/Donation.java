@@ -1,5 +1,7 @@
 package edu.br.doacao_backend.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +22,16 @@ public class Donation {
 
     private String status;
 
+    @OneToMany
+    @JoinColumn(name = "id_employee", referencedColumnName = "id")
+    private List<Employee> employees;
 
-    
+    @OneToMany
+    @JoinColumn(name = "id_client", referencedColumnName = "id")
+    private List<Client> clients;
+
+    @OneToMany
+    @JoinColumn(name = "id_animal", referencedColumnName = "id")
+    private List<Animal> animals;
+
 }
