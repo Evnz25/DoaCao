@@ -14,48 +14,49 @@ USE `clinica_doacao` ;
 -- -----------------------------------------------------
 -- Table `clinica_doacao`.`condiçao_medica`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `clinica_doacao`.`condicao` (
-  `id_Condicao` INT NOT NULL AUTO_INCREMENT,
-  `machucado` VARCHAR(45) NOT NULL,
-  `doenca` VARCHAR(45) NOT NULL,
-  `remedios` VARCHAR(45) NOT NULL,
-  `vacinas` VARCHAR(45) NOT NULL,
-  `castrado` BOOLEAN NOT NULL,
-  PRIMARY KEY (`id_Condicao`))
-
-CREATE TABLE IF NOT EXISTS `clinica_doacao`.`especies` (
-id_especie int not null PRIMARY key AUTO_INCREMENT,
-nome varchar(50) not null
-)
+CREATE TABLE IF NOT EXISTS clinica_doacao.condicoes (
+  id_Condicao INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  machucado VARCHAR(45) NOT NULL,
+  doenca VARCHAR(45) NOT NULL,
+  remedios VARCHAR(45) NOT NULL,
+  vacinas VARCHAR(45) NOT NULL,
+  castrado BOOLEAN NOT NULL
+  );
 
 -- -----------------------------------------------------
--- Table `clinica_doacao`.`animal`
+-- Table clinica_doacao.especie
+-- ----------------------------------------------------- 
+CREATE TABLE IF NOT EXISTS clinica_doacao.especies (
+id_especie INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL
+);
+
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `clinica_doacao`.`animals` (
-  `id_Animal` INT NOT NULL AUTO_INCREMENT PRIMARY key,
-  `id_especie` int NOT NULL,
-  `nome` VARCHAR(45) NOT NULL,
-  `sexo` VARCHAR(45) NOT NULL,
-  `raca` VARCHAR(45) NOT NULL,
-  `data_nascimento` DATE NOT NULL,
-  `imagePath` VARCHAR(45) NOT NULL,
-  `idCondicao_medica` INT NOT NULL,
-  
-  id_condicao int not null,
-   Foreign Key (id_especie) REFERENCES especies(id_especie),
-   Foreign Key (id_condicao) REFERENCES condicao(id_condicao))
+-- Table clinica_doacao.animal
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS clinica_doacao.animals (
+  id_Animal INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(45) NOT NULL,
+  sexo VARCHAR(45) NOT NULL,
+  raca VARCHAR(45) NOT NULL,
+  data_nascimento DATE NOT NULL,
+  imagePath VARCHAR(45) NOT NULL,
+  id_Condicao INT NOT NULL,
+  id_Especie INT NOT NULL,
+  FOREIGN KEY (id_Condicao) REFERENCES condicoes(id_Condicao)
+  FOREIGN KEY (id_Especie) REFERENCES especies(id_Especie)
+  );
 
 
 -- -----------------------------------------------------
--- Table `clinica_doacao`.`endereco`
+-- Table clinica_doacao.endereco
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `clinica_doacao`.`enderecos` (
-  `id_Endereco` INT NOT NULL AUTO_INCREMENT,
-  `cep` VARCHAR(45) NOT NULL,
-  `cidade` VARCHAR(45) NOT NULL,
-  `bairro` VARCHAR(45) NOT NULL,
-  `numero` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_Endereco`))
+CREATE TABLE IF NOT EXISTS clinica_doacao.enderecos (
+  id_Endereco INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cep VARCHAR(45) NOT NULL,
+  cidade VARCHAR(45) NOT NULL,
+  bairro VARCHAR(45) NOT NULL,
+  numero VARCHAR(45) NOT NULL,
 
 
 -- -----------------------------------------------------
