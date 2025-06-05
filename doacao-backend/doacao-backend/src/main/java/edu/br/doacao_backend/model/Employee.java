@@ -21,13 +21,12 @@ public class Employee {
 
     private String cpf;
 
-    private String adress;
-
-    private int phone;
+    private String phone;
 
     private int age;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_address", referencedColumnName = "id")
     private Address address;
+
 }
