@@ -19,6 +19,6 @@ public class AddressController {
     @PostMapping("/address")
     Address newAdress (@RequestBody Address newAdress) { return addressRepository.save(newAdress); }
     
-    @GetMapping("/address")
+    @GetMapping("/Addresses")
     List<Address> getAllAddress() { return addressRepository.findAll(); }
 }

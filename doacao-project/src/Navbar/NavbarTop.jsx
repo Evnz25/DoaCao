@@ -18,9 +18,10 @@ function Navbar(){
             <div className={style.navbarTopRight}>
                 <ul className={style.navLinks}>
                     <li><Link to="/"> Gatos </Link></li>
-                    <li><Link to="/donationdog"> Cachorros </Link></li>
+                    <li><Link to="/donationanimal"> Cachorros </Link></li>
                 </ul>
                 <button className={style.loginButton} onClick={() => navigate('/')}>Login funcionário</button>
+                <button className={style.loginButton} onClick={() => navigate('/')}>Cadastro do funcionário</button>
             </div>
         </nav>
     );
