@@ -2,6 +2,7 @@ package edu.br.doacao_backend.controller;
 
 import edu.br.doacao_backend.model.Address;
 import edu.br.doacao_backend.model.Client;
+import edu.br.doacao_backend.model.Donation;
 import edu.br.doacao_backend.repository.ClientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class ClientController {
     @PostMapping("/client")
     public ResponseEntity<Client> createCleint(
         @RequestPart("basic_info_client") String basicInfoClientJson,
+        @RequestPart("address_client") String addressClientJson,
         @RequestPart("address_client") String addressClientJson
     ) throws JsonProcessingException {
         try {

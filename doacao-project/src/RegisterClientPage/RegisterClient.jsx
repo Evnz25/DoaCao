@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import NavbarTop from "../Navbar/NavbarTop"
 import style from './RegisterClientPage.module.css'
-import uploadPic from "../assets/upload.png"
 
 
 function RegisterClient(){
@@ -15,7 +14,9 @@ function RegisterClient(){
         },
         address_client: {
             cep: '',
+            state: '',
             city: '',
+            street: '',
             neighborhood: '',
             number: ''
         }
@@ -84,7 +85,11 @@ function RegisterClient(){
                 <div className={style.addressClientData}>
                     <input name="cep" placeholder="CEP" onChange={handleChange} />
                     <hr />
+                    <input name="state" placeholder="Estado" onChange={handleChange} />
+                    <hr />
                     <input name="city" placeholder="Cidade" onChange={handleChange} />
+                    <hr />
+                    <input name="street" placeholder="Rua" onChange={handleChange} />
                     <hr />
                     <input name="neighborhood" placeholder="Bairro" onChange={handleChange} />
                     <hr />
