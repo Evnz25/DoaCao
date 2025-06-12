@@ -3,6 +3,7 @@ import Home from './HomePage/Home.jsx'
 import DonationAnimal from './DonationAnimalPage/DonationAnimal.jsx'
 import InformationAnimal from './AnimalInformationPage/InformationAnimal.jsx'
 import RegisterAnimal from './RegisterAnimalPage/RegisterAnimal.jsx';
+import RegisterClient from "./RegisterClientPage/RegisterClient.jsx";
 
 function App() {
   return(
@@ -12,6 +13,7 @@ function App() {
         <Route path="/donationanimal" element={<DonationAnimal/>} />
         <Route path="/animals/:id" element={<InformationAnimal />} />
         <Route path="/animalsregister/" element={<RegisterAnimal />} />  
+        <Route path="/clientregister/" element={<RegisterClient />} />  
       </Routes>
     </Router>
   );

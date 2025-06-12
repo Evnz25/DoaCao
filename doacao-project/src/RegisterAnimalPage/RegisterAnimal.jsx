@@ -35,8 +35,7 @@ function RegisterAnimal(){
             setAnimal((prev) => ({
                 ...prev, 
                 medical_conditions: {
-                    ...prev.medical_conditions,
-                    [name]: value
+                    ...prev.medical_conditions, [name]: value
                 },   
             }));
         } else {
