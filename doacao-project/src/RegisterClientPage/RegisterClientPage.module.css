@@ -1,0 +1,88 @@
+.basicInformationClient{
+    gap: 2px;
+    background-color: rgb(240, 220, 220, 70%);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5em;
+    margin-top: 2em;
+}
+
+.perfilClient{
+    flex-direction: column;
+    padding-left: 2%;
+}
+
+.informationTitle{
+    font-family:"Inter", arial;
+    font-size: 30px;
+    color:hsl(0, 0%, 20%)
+}
+
+.characteristicsClient{
+    flex-direction: column;
+    align-items: left;
+    font-family: Arial;
+    font-size: 20px;
+    width: 100%;
+    padding-left: 1%;
+}
+
+.characteristicsClient hr{
+    padding-top: 5px;
+    margin: 5px 0;
+    width: 95%;
+    border: none;
+    border-top: 2px solid black;
+}
+
+.addressClient{
+    gap: 2px;
+    background-color: rgb(240, 220, 220, 70%);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5em;
+    margin-top: 2em;
+}
+
+.addressClientTitle{
+    flex-direction: column;
+    padding-left: 2%;
+}
+
+.addressTitle{
+    font-family:"Inter", arial;
+    font-size: 30px;
+    color:hsl(0, 0%, 20%)
+}
+
+.addressClientData{
+    flex-direction: column;
+    align-items: left;
+    font-family: Arial;
+    font-size: 20px;
+    width: 100%;
+    padding-left: 1%;
+}
+
+.addressClientData hr{
+    padding-top: 5px;
+    margin: 5px 0;
+    width: 95%;
+    border: none;
+    border-top: 2px solid black;
+}
+
+.buttons button{
+    margin-top: 0.5rem;
+    margin-left: 30em;
+    background-color: rgb(144, 158, 212, 45%);
+    font-family:"Inter", Arial;
+    font-size: 20px;
+    color:black;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
