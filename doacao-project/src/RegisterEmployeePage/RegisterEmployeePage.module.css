@@ -1,0 +1,88 @@
+.basicInformationEmployee{
+    gap: 2px;
+    background-color: rgb(240, 220, 220, 70%);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5em;
+    margin-top: 2em;
+}
+
+.perfilEmployee{
+    flex-direction: column;
+    padding-left: 2%;
+}
+
+.informationTitle{
+    font-family:"Inter", arial;
+    font-size: 30px;
+    color:hsl(0, 0%, 20%)
+}
+
+.characteristicsEmployee{
+    flex-direction: column;
+    align-items: left;
+    font-family: Arial;
+    font-size: 20px;
+    width: 100%;
+    padding-left: 1%;
+}
+
+.characteristicsEmployee hr{
+    padding-top: 5px;
+    margin: 5px 0;
+    width: 95%;
+    border: none;
+    border-top: 2px solid black;
+}
+
+.addressEmployee{
+    gap: 2px;
+    background-color: rgb(240, 220, 220, 70%);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5em;
+    margin-top: 2em;
+}
+
+.addressEmployeeTitle{
+    flex-direction: column;
+    padding-left: 2%;
+}
+
+.addressTitle{
+    font-family:"Inter", arial;
+    font-size: 30px;
+    color:hsl(0, 0%, 20%)
+}
+
+.addressEmployeeData{
+    flex-direction: column;
+    align-items: left;
+    font-family: Arial;
+    font-size: 20px;
+    width: 100%;
+    padding-left: 1%;
+}
+
+.addressEmployeeData hr{
+    padding-top: 5px;
+    margin: 5px 0;
+    width: 95%;
+    border: none;
+    border-top: 2px solid black;
+}
+
+.buttons button{
+    margin-top: 0.5rem;
+    margin-left: 30em;
+    background-color: rgb(144, 158, 212, 45%);
+    font-family:"Inter", Arial;
+    font-size: 20px;
+    color:black;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
