@@ -1,0 +1,97 @@
+.informationDonation{
+    gap: 2rem;
+    background-color: rgb(240, 220, 220, 70%);
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 5em;
+    margin-top: 2em;
+}
+
+.perfilAnimal{
+    flex-direction: column;
+    padding-left: 2%;
+    padding-bottom: 40px;
+}
+
+.donationTitle{
+    font-family:"Inter", arial;
+    font-size: 30px;
+    color:hsl(0, 0%, 20%)
+}
+
+.donationPhoto{
+    width: 15rem;
+    height: 18rem;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+}
+
+.characteristicsAnimal{
+    flex-direction: column;
+    align-items: left;
+    font-family: Arial;
+    font-size: 20px;
+    width: 100%;
+    padding-top: 5%;
+    padding-left: 2%;
+}
+
+.characteristicsAnimal hr{
+    margin: 5px 0;
+    width: 95%;
+    border: none;
+    border-top: 2px solid black;
+}
+
+.clientInformation{
+    gap: 1em;
+    background-color: rgb(240, 220, 220, 70%);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5em;
+    margin-top: 2em;
+}
+
+.medicalCondition hr{
+    margin: 5px 0;
+    width: 100%;
+    border: none;
+    border-top: 2px solid black;
+}
+
+.clientData{
+    flex-direction: column;
+    align-items: left;
+    font-family: Arial;
+    font-size: 23px;
+    width: 100%;
+    padding-left: 5%;   
+}
+
+.medicalCondition li{
+    list-style-type: disc;
+    margin-left: 5em;
+    padding-top: 5px;
+    font-family: Arial;
+    font-size: 18px;
+}
+
+.buttons{
+    gap: 2em;
+    margin-left: 10em;
+    margin-bottom: 2em;
+}
+
+.buttons button{
+    margin-top: 0.5rem;
+    margin-left: 3em;
+    background-color: rgb(144, 158, 212, 45%);
+    font-family:"Inter", Arial;
+    font-size: 20px;
+    color:black;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
