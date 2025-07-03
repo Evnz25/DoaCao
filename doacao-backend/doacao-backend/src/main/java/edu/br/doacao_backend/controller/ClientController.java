@@ -24,7 +24,7 @@ public class ClientController {
     private ClientRepository clientRepository;
 
     @PostMapping("/client")
-    public ResponseEntity<Client> createCleint(
+    public ResponseEntity<Client> createClient(
         @RequestPart("basic_info_client") String basicInfoClientJson,
         @RequestPart("address_client") String addressClientJson
     ) throws JsonProcessingException {

@@ -5,6 +5,7 @@ import InformationAnimal from './AnimalInformationPage/InformationAnimal.jsx'
 import RegisterAnimal from './RegisterAnimalPage/RegisterAnimal.jsx';
 import RegisterClient from "./RegisterClientPage/RegisterClient.jsx";
 import RegisterEmployee from "./RegisterEmployeePage/RegisterEmployee.jsx";
+import DonationInformationAnimal from "./AnimalDonationInformationPage/DonationInformationAnimal.jsx";
 
 function App() {
   return(
@@ -15,7 +16,8 @@ function App() {
         <Route path="/animals/:id" element={<InformationAnimal />} />
         <Route path="/animalsregister/" element={<RegisterAnimal />} />  
         <Route path="/clientregister/" element={<RegisterClient />} />
-        <Route path="/employeeregister/" element={<RegisterEmployee />} />  
+        <Route path="/employeeregister/" element={<RegisterEmployee />} />
+        <Route path="/donationinformationanimal/:id" element={<DonationInformationAnimal />} />
       </Routes>
     </Router>
   );

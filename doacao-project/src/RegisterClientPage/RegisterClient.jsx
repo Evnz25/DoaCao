@@ -96,7 +96,7 @@ function RegisterClient(){
                     <input name="number" placeholder="Número" onChange={handleChange} />
                 </div>
                 <div className={style.buttons}>
-                    <button type="submit">Cadastrar</button>
+                    <button type="submit"> Cadastrar </button>
                 </div>
             </div>
             </form>
