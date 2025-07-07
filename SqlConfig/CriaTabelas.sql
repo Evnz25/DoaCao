@@ -1,5 +1,3 @@
--- MySQL Workbench Forward Engineering
-
 -- -----------------------------------------------------
 -- Schema clinica_doacao
 -- -----------------------------------------------------
@@ -41,9 +39,9 @@ nome VARCHAR(50) NOT NULL
 
 
 -- -----------------------------------------------------
--- Table clinica_doacao.animal
+-- Table clinica_doacao.animais
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS clinica_doacao.animals (
+CREATE TABLE IF NOT EXISTS clinica_doacao.animais (
   id_Animal INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(45) NOT NULL,
   sexo VARCHAR(45) NOT NULL,
@@ -53,8 +51,8 @@ CREATE TABLE IF NOT EXISTS clinica_doacao.animals (
   id_Condicao INT NOT NULL,
   id_Especie INT NOT NULL,
   id_Raca INT NOT NULL,
-  FOREIGN KEY (id_Condicao) REFERENCES condicoes(id_Condicao)
-  FOREIGN KEY (id_Especie) REFERENCES especies(id_Especie)
+  FOREIGN KEY (id_Condicao) REFERENCES condicoes(id_Condicao),
+  FOREIGN KEY (id_Especie) REFERENCES especies(id_Especie),
   FOREIGN KEY (id_Raca) REFERENCES racas(id_Raca)
   );
 
@@ -64,7 +62,7 @@ CREATE TABLE IF NOT EXISTS clinica_doacao.animals (
 CREATE TABLE IF NOT EXISTS clinica_doacao.cidades (
   id_Cidade INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(45) NOT NULL,
-  uf VARCHAR(2) NOT NULL,
+  uf VARCHAR(2) NOT NULL
   );
 
 -- -----------------------------------------------------
@@ -112,7 +110,7 @@ CREATE TABLE IF NOT EXISTS clinica_doacao.funcionarios (
 -- Table clinica_doacao.doacao
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS clinica_doacao.doacao (
-  id_doacao int not null PRIMARY key AUTO_INCREMENT,
+  id_doacao int not null PRIMARY KEY AUTO_INCREMENT,
   data_doacao VARCHAR(45) NOT NULL,
   status VARCHAR(45) NOT NULL,
   id_Funcionario INT NOT NULL,
@@ -121,26 +119,7 @@ CREATE TABLE IF NOT EXISTS clinica_doacao.doacao (
   id_Endereco INT NOT NULL,
   FOREIGN KEY (id_Funcionario) REFERENCES funcionarios(id_Funcionario),
   FOREIGN KEY (id_Cliente) REFERENCES clientes(id_Cliente),
-  FOREIGN KEY (id_Animal) REFERENCES animais(id_Animal),
+  FOREIGN KEY (id_Animal) REFERENCES animais (id_Animal),
   FOREIGN KEY (id_Endereco) REFERENCES enderecos(id_Endereco)
   );
-  
 
-
-desc animals;
-desc condicao;
-
-select * from animals;
-
-insert into especies(id_especie,nome) values(1,'cachorro'),(2,'gato');
-insert into condicao()
-insert into animals(id_Animal,id_especie,nome,sexo,raca,data_nascimento,imagePath,id_Condicao) values
-(1,1,'Zeca',1,'Vira Lata','10/10/2010',"/uploads/ZecaPic.png",1),
-(1, 2, "Macho", "/uploads/ZecaPic.png", "Zeca", "Vira Lata", "Cachorro", 1),
-(2, 1, "Fêmea", "/uploads/NinaPic.png", "Nina", "Vira Lata", "Cachorro", 2),
-(3, 4, "Fêmea", "/uploads/BellaPic.png", "Nina", "Vira Lata", "Cachorro", 3);
-
-insert into medical_conditions(idanimal, injuries, sickness, medicine, vaccine, castrated) values
-(1, "Não tem", "Não tem", "Não tem", "Raiva", "Sim"),
-(2, "Não tem", "Não tem", "Não tem", "Raiva", "Sim"),
-(3, "Não tem", "Não tem", "Não tem", "Raiva", "Sim");
