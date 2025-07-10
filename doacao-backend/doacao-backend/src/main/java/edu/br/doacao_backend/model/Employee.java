@@ -23,6 +23,8 @@ public class Employee {
 
     private String phone;
 
+    private String password;
+
     private int age;
 
     @OneToOne(cascade = CascadeType.ALL)

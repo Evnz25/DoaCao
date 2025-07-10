@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import style from './DonationInformationAnimal'
+import style from './AnimalDonationInformation.module.css'
 
 function InformationDonationContainer(props){
     const navigate = useNavigate();

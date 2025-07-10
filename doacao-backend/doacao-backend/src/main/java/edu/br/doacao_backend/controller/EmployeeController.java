@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.br.doacao_backend.model.Address;
 import edu.br.doacao_backend.model.Employee;
 import edu.br.doacao_backend.repository.EmployeeRepository;
+import edu.br.doacao_backend.service.EmployeService;
 
 @CrossOrigin("http://localhost:5173")
 @RestController
@@ -20,6 +21,9 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private EmployeService employeService;
 
     @PostMapping("/employee")
     public ResponseEntity<Employee> createEmployee(
@@ -34,7 +38,7 @@ public class EmployeeController {
 
             employee.setAddress(addressEmployee);
 
-            Employee savedEmployee = employeeRepository.save(employee);
+            Employee savedEmployee = employeService.createEmployee(employee);
 
             return ResponseEntity.ok(savedEmployee);
 
