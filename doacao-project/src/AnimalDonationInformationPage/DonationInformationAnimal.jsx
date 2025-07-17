@@ -7,12 +7,19 @@ import NavbarTop from '../Navbar/NavbarTop';
 function DonationInformationAnimal() {
     const { id } = useParams();
     const [donations, setDonation] = useState(null);
+    const [pendingDonations, setPendingDonations] = useState([]);
 
     useEffect(() =>{
         axios.get(`http://localhost:8080/api/donations/${id}`)
         .then(res => setDonation(res.data))
         .catch(err => console.error("Erro em buscar doação (DonationAnimal)", err))
     }, [id]);
+
+    const handleDonationApproved = (approvedDonationId) => {
+        setPendingDonations(currentDonations =>
+            currentDonations.filter(donation => donation.id !== approvedDonationId)
+        );
+    };
 
     if (!donations) {
         return (
@@ -36,7 +43,8 @@ function DonationInformationAnimal() {
                 age={donations.animal.age}
                 gender={donations.animal.gender}
                 race={donations.animal.race}
-                image={donations.animal.imagePath}      
+                image={donations.animal.imagePath}
+                onApprove={handleDonationApproved}      
                 clientName={donations.client.name} 
                 clientEmail={donations.client.email}
                 clientCpf={donations.client.cpf}

@@ -1,8 +1,33 @@
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'; 
 import style from './AnimalDonationInformation.module.css'
 
 function InformationDonationContainer(props){
     const navigate = useNavigate();
+
+    const handleApproveClick = async () => {
+        // Confirma se a prop 'id' foi recebida para evitar erros
+        if (!props.id) {
+            console.error("ID da doação não foi fornecido para aprovação.");
+            alert("Erro: ID da doação não encontrado.");
+            return;
+        }
+
+        try {
+            // 1. A chamada para a API continua a mesma
+            await axios.put(`http://localhost:8080/api/donations/${props.id}/approve`, {}, {
+                withCredentials: true
+            });
+
+            // 2. Lógica de sucesso: Avisa o usuário e redireciona para o dashboard
+            alert("Doação aprovada com sucesso!");
+            navigate('/'); // Redireciona para a lista de doações pendentes
+
+        } catch (err) {
+            console.error(`Erro ao aprovar doação ${props.id}:`, err);
+            alert("Não foi possível aprovar a doação. Tente novamente.");
+        }
+    };
 
     return(
         <>
@@ -37,7 +62,7 @@ function InformationDonationContainer(props){
                     <li>Número: {props.clientAdrressNumber}</li>
             </h1>
             <div className={style.buttons}>
-                <button className={style.adopt} onClick={() => navigate ('/clientregister')}>Prosseguir para adoção</button>
+                <button className={style.adopt} onClick={handleApproveClick}>Prosseguir para adoção</button>
                 <button className={style.return} onClick={() => navigate ('/donationanimal')}>Retornar página anterior</button>
             </div>
         </div>

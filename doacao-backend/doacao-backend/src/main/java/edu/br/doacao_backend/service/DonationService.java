@@ -36,6 +36,10 @@ public class DonationService {
         return donationRepository.findByStatus("PENDENTE");
     }
 
+    public List<Donation> findNullDonations() {
+        return donationRepository.findByStatus(null);
+    }
+
     @Transactional 
     public Donation createDonationWithNewClient(String clientJson, String addressJson, String animalIdStr) throws Exception {
         
@@ -64,9 +68,19 @@ public class DonationService {
         Donation donation = donationRepository.findById(donationId)
                 .orElseThrow(() -> new EntityNotFoundException("Doação não encontrada com o ID: " + donationId));
         
+        Animal animal = donation.getAnimal();
+        
         donation.setStatus("CONCLUIDO");
         donation.setEmployee(approvingEmployee);
+        
+        donation.setAnimal(null); 
 
-        return donationRepository.save(donation);
+        Donation savedDonation = donationRepository.save(donation);
+
+        if (animal != null) {
+            animalRepository.delete(animal);
+        }
+
+        return savedDonation;
     }
 }

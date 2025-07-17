@@ -42,6 +42,12 @@ public class DonationController {
         return ResponseEntity.ok(pendingDonations);
     }
 
+    @GetMapping("/available")
+    public ResponseEntity<List<Donation>> getNullDonations() {
+        List<Donation> nullDonations = donationService.findNullDonations();
+        return ResponseEntity.ok(nullDonations);
+    }
+
     @PostMapping("/initiate")
     public ResponseEntity<Donation> initiateDonation(
         @RequestPart("client_info") String clientJson,
@@ -59,7 +65,7 @@ public class DonationController {
     @PutMapping("/{id}/approve")
     public ResponseEntity<Donation> approveDonation(
             @PathVariable Long id,
-            @AuthenticationPrincipal Employee employee // 1. Pega o funcionário logado automaticamente
+            @AuthenticationPrincipal Employee employee 
     ) {
         try {
             Donation approvedDonation = donationService.approveDonation(id, employee);
