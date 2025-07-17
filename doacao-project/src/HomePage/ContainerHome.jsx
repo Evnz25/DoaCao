@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import style from './HomePage.module.css'
 import cachorroPicHome from '../assets/cachorro-home.png'
-import gatoPicHome from '../assets/gato-home.png'
 
 function ContainerHome() {
     const navigate = useNavigate()

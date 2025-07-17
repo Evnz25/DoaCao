@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './EmployeeLogin.module.css'; 
+import style from './EmployeeLogin.module.css'; 
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -38,11 +38,11 @@ function Login() {
     };
 
     return (
-        <div className="login-container">
-            <form className="login-form" onSubmit={handleSubmit}>
+        <div className={style.loginContainer}>
+            <form className={style.loginForm} onSubmit={handleSubmit}>
                 <h2>Login</h2>
                 
-                <div className="form-group">
+                <div className={style.formGroup}>
                     <label htmlFor="email">Email</label>
                     <input
                         type="email"
@@ -53,7 +53,7 @@ function Login() {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className={style.formGroup}>
                     <label htmlFor="password">Senha</label>
                     <input
                         type="password"
@@ -64,9 +64,9 @@ function Login() {
                     />
                 </div>
 
-                {error && <p className="error-message">{error}</p>}
+                {error && <p className={style.errorMessage}>{error}</p>}
 
-                <button type="submit" className="login-button">Login</button>
+                <button type="submit" className={style.loginButton}>Login</button>
             </form>
         </div>
     );
