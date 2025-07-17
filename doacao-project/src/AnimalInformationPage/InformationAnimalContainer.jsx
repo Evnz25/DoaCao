@@ -38,7 +38,7 @@ function InformationAnimalContainer(props){
 
             </h2>
             <div className={style.buttons}>
-                <button className={style.adopt} onClick={() => navigate ('/clientregister')}>Prosseguir para adoção</button>
+                <button className={style.adopt} onClick={() => navigate (`/clientregister/${props.id}`)}>Prosseguir para adoção</button>
                 <button className={style.return} onClick={() => navigate ('/donationanimal')}>Retornar página anterior</button>
             </div>
         </div>

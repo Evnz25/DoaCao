@@ -6,7 +6,8 @@ import RegisterAnimal from './RegisterAnimalPage/RegisterAnimal.jsx';
 import RegisterClient from "./RegisterClientPage/RegisterClient.jsx";
 import RegisterEmployee from "./RegisterEmployeePage/RegisterEmployee.jsx";
 import DonationInformationAnimal from "./AnimalDonationInformationPage/DonationInformationAnimal.jsx";
-import ClientLogin from "./ClientLoginPage/ClientLogin.jsx";
+import EmployeeLogin from "./Login/EmployeeLogin.jsx";
+import DonationEmployee from "./DonationEmployeePage/DonationEmployee.jsx";
 
 function App() {
   return(
@@ -16,10 +17,11 @@ function App() {
         <Route path="/donationanimal" element={<DonationAnimal/>} />
         <Route path="/animals/:id" element={<InformationAnimal />} />
         <Route path="/animalsregister/" element={<RegisterAnimal />} />  
-        <Route path="/clientregister/" element={<RegisterClient />} />
+        <Route path="/clientregister/:animalId" element={<RegisterClient />} />
         <Route path="/employeeregister/" element={<RegisterEmployee />} />
         <Route path="/donationinformationanimal/:id" element={<DonationInformationAnimal />} />
-        <Route path="/loginfunc/" element={<ClientLogin />} />
+        <Route path="/employeelogin/" element={<EmployeeLogin />} />
+        <Route path="/donationemployee/" element={<DonationEmployee />} />
       </Routes>
     </Router>
   );

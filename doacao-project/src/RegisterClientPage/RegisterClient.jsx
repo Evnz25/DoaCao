@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 import NavbarTop from "../Navbar/NavbarTop"
 import style from './RegisterClientPage.module.css'
 
 
 function RegisterClient(){
+    const navigate = useNavigate();
+    const { animalId } = useParams();
     const[client, setClient] = useState({
         basic_info_client: {
             name: '',
@@ -25,7 +29,7 @@ function RegisterClient(){
     const handleChange = (e) => {
         const { name, value, type, file } = e.target;
 
-        if (["cep", "city", "neighborhood", "number"].includes(name)) {
+        if (["cep", "state", "city", "street", "neighborhood", "number"].includes(name)) {
             setClient((prev) => ({
                 ...prev, address_client: {
                     ...prev.address_client, [name]: value
@@ -45,20 +49,20 @@ function RegisterClient(){
 
         const formData = new FormData();
 
-        formData.append("basic_info_client", JSON.stringify(client.basic_info_client));
-        formData.append("address_client", JSON.stringify(client.address_client));
+        formData.append("client_info", JSON.stringify(client.basic_info_client));
+        formData.append("address_info", JSON.stringify(client.address_client));
 
-        try {
-            const res = await axios.post("http://localhost:8080/client", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
+        formData.append("animalId", animalId);
+
+         try {
+            const res = await axios.post("http://localhost:8080/api/donations/initiate", formData, {
+                headers: { "Content-Type": "multipart/form-data" },
             });
-            console.log("Cadastrado", res.data);
+            console.log("Doação iniciada com sucesso!", res.data);
         } catch (err) {
-            console.error("Erro de cadastro", err);
+            console.error("Erro ao iniciar doação", err);
         }
-        };
+    };
 
         return(
             <>
@@ -95,7 +99,7 @@ function RegisterClient(){
                     <hr />
                     <input name="number" placeholder="Número" onChange={handleChange} />
                 </div>
-                <div className={style.buttons}>
+                <div className={style.buttons} onClick={() => navigate('/')} >
                     <button type="submit"> Cadastrar </button>
                 </div>
             </div>

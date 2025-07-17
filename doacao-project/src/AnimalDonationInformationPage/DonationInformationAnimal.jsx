@@ -9,7 +9,7 @@ function DonationInformationAnimal() {
     const [donations, setDonation] = useState(null);
 
     useEffect(() =>{
-        axios.get(`http://localhost:8080/donations/${id}`)
+        axios.get(`http://localhost:8080/api/donations/${id}`)
         .then(res => setDonation(res.data))
         .catch(err => console.error("Erro em buscar doação (DonationAnimal)", err))
     }, [id]);
@@ -29,9 +29,10 @@ function DonationInformationAnimal() {
             <NavbarTop />
             <InformationDonationContainer 
                 key={donations.id}
+                id={donations.id} 
                 status={donations.status}
                 specie={donations.animal.specie}
-                Name={donations.animal.name}
+                name={donations.animal.name}
                 age={donations.animal.age}
                 gender={donations.animal.gender}
                 race={donations.animal.race}

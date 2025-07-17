@@ -28,11 +28,12 @@ insert into clients(id, name, cpf, phone, email, id_address) values
 (1, "José Marcos", "099854976", "9984546559", "josemaquinhios@gmail.com", 1);
 
 insert into employees(id, name, email, cpf, phone, password, age, id_address) values
-(1, "José Paulo", "josepaulinho@gmail.com", "999854976", "1234", "9984546559", "32", 2);
+(1, "José Paulo", "josepaulinho@gmail.com", "999854976","9999999999", "1234", "$2a$10$TtqYyJXecxwUGu9yMvQF0.h6iUVkmwLxWxfSyruV9./tJwbkWFtI2", "32", 2);
 
 insert into donation(id, data, status, id_employee, id_client, id_animal) values
 (1, "12/05/2025", "Aprovado", 1, 1, 1); 
 
-desc donation;
+desc employees;
+select * from employees;
 
 

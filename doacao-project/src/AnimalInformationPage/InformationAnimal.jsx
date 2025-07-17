@@ -23,6 +23,7 @@ function InformationDog() {
             <NavbarTop />
             <InformationAnimalContainer 
                 key={animals.id}
+                id={animals.id}
                 name={animals.name} 
                 age={animals.age} 
                 gender={animals.gender} 
