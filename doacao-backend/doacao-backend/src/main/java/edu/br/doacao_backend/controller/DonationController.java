@@ -7,7 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import edu.br.doacao_backend.model.Donation;
 import edu.br.doacao_backend.repository.DonationRepository;
-import edu.br.doacao_backend.service.DonationService; 
+import edu.br.doacao_backend.service.DonationService;
+import jakarta.persistence.EntityNotFoundException;
+
+import org.springframework.security.core.annotation.AuthenticationPrincipal; 
+import edu.br.doacao_backend.model.Employee;
+
 
 @CrossOrigin("http://localhost:5173")
 @RestController
@@ -46,6 +51,21 @@ public class DonationController {
         try {
             Donation newDonation = donationService.createDonationWithNewClient(clientJson, addressJson, animalIdStr);
             return new ResponseEntity<>(newDonation, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @PutMapping("/{id}/approve")
+    public ResponseEntity<Donation> approveDonation(
+            @PathVariable Long id,
+            @AuthenticationPrincipal Employee employee // 1. Pega o funcionário logado automaticamente
+    ) {
+        try {
+            Donation approvedDonation = donationService.approveDonation(id, employee);
+            return ResponseEntity.ok(approvedDonation);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
